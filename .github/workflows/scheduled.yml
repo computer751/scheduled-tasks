@@ -14,7 +14,7 @@ on:
     # ║                                                                ║
     # ║  Use https://time.is/UTC to find your local time in UTC       ║
     # ╚═══════════════════════════════════════════════════════════════╝
-    - cron: '0 1 * * *'
+    - cron: '15 3 * * *'
 
   # This adds a "Run workflow" button so you can test manually
   workflow_dispatch:
@@ -41,6 +41,13 @@ jobs:
         env:
           # Your secrets are available as environment variables
           # Add more secrets in Settings > Secrets > Actions
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          #MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          #MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          api_key: ${{ secrets.OWM_API_KEY }}
+          account_sid: ${{ secrets.ACCOUNT_SID }}
+          auth_token: ${{ secrets.AUTH_TOKEN }}
+          
+          t_number: ${{ secrets.T_NUMBER }}
+          c_number: ${{ secrets.C_NUMBER }}
+          
         run: python main.py
